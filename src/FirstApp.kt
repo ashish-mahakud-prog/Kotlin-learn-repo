@@ -25,6 +25,11 @@ fun main(){
     ArraySystem()
     arraylistFunc()
     mapFunc()
+    
+    var emp1 = Customer()
+    emp1.customer("Arun",28)
+    emp1.printCustomer("Shalima", 29)
+    
 }
 
 /*
@@ -361,5 +366,25 @@ fun mapFunc(){
     //get all values
     mapp.values
     //learn other map funtions
+
+}
+
+//class and object in kotlin
+//NOTE : ALL CLASSES ARE FINAL BY DEFAULT
+
+class Customer{
+    var name:String =""
+    var age:Int=0
+
+
+
+    fun customer(name:String ,age:Int){
+        this.name =name
+        this.age=age
+    }
+
+    fun printCustomer(name:String, age:Int):String{
+        return "name : $name and age : $age"
+    }
 }
 
