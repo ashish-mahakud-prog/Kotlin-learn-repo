@@ -1,3 +1,5 @@
+import kotlin.collections.ArrayList
+
 //All basics are going to be covered in this single file
 //from base to advance topics in kotlin lang.
 
@@ -21,6 +23,8 @@ fun main(){
     //readText()
     forLooping()
     ArraySystem()
+    arraylistFunc()
+    mapFunc()
 }
 
 /*
@@ -240,5 +244,122 @@ fun ArraySystem(){
     //we can use foreach for array traversal
     arr3.forEach({num -> num*10})
     println("after using forEach() on arr3 -> ${arr3.joinToString()}")
-    
+
 }
+
+//functions in kotlin
+//basic way to create a function is
+fun greet(){
+    println("greet")
+}
+
+//with arguments
+fun greet(name : String){
+    println("Hello! $name")
+}
+
+//when you want to tell the function what thte return type should be
+fun greeting(name :String) :String{
+    return "Hello! $name"
+}
+
+//you can add default values to the variables in function
+//in the below function the default value is "Ashish"
+//if you don't give a value then it will take that value fo printing
+fun sayHello(name : String = "Ashish") : String{
+    return "Hello to my friend $name"
+}
+
+//what about multiple arguments
+var studentName = "Loco Poco"
+var age = 28
+var emailId = "poco@gmail.com"
+
+fun displayStudent(name: String, age : Int, email:String):String{
+    return "$name is of age : $age and has email id : $email"
+}
+
+/*
+In Kotlin, collections are used to store and manipulate groups of objects or data. There are several types of collections available in Kotlin, including:
+
+    Lists – Ordered collections of elements that allow duplicates.
+    Sets – Unordered collections of unique elements.
+    Maps – Collections of key-value pairs, where each key is unique.
+    Arrays – Fixed-size collections of elements with a specific type.
+    Sequences – Lazily evaluated collections of elements that can be processed in a pipeline.
+
+    there are 2 types of collections
+    1.mutable
+
+    List – mutableListOf(),arrayListOf() and ArrayList
+    Set – mutableSetOf(), hashSetOf()
+    Map – mutableMapOf(), hashMapOf() and HashMap
+
+    2.immutable
+
+    List – listOf() and listOf<T>()
+    Set – setOf()
+    Map – mapOf()
+ */
+//ARRAYLIST
+
+fun arraylistFunc(){
+    var list = ArrayList<String>()
+    list.add("marco")
+    list.add("polo")
+    list.add("han solo")
+    list.add("falcon")
+    list.add("champa")
+    list.add("life's good")
+    list.add("space")
+
+    //print the list
+    println(list)
+
+    //get from list
+    println("third item in list is : ${list.get(3)}")
+    //set the value
+    list.set(3,"winter")
+    //remove
+    list.remove("life's good")
+    //clear the whole list
+    list.clear()
+
+    //similar to java Arrays.asList()
+    //kotlin has arrayListOf()
+    var newList= arrayListOf(1,2,3,4,5)
+
+}
+
+fun setFunc(){
+    //creating a set
+    //1. immutabke set
+    var setA  =setOf(1,2,3,4,5,6,7,8,9)
+    //2. mutable set
+    var setB = mutableSetOf(1,2,3,4,5)
+    var hashSetA =hashSetOf(1,2,3,4,5,6,7)
+
+    //get element at index
+    setA.elementAt(3)
+    //find index of element
+    setB.indexOf(5)
+  //learn other set functions by practicing
+}
+
+//maps in kotlin
+fun mapFunc(){
+    //creating a map in kotlin
+    //maps are also of 2 types , A)mutable B) immutable
+    //empty map
+    var emptyMap = mapOf<Int , String>()
+    var mapp = hashMapOf(1 to "A",2 to "B",3 to "C")
+    println(mapp)
+    //get all entries
+    mapp.entries
+    //get all keys
+    mapp.keys
+    //get all values
+    mapp.values
+    //learn other map funtions
+}
+
